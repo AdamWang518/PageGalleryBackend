@@ -10,14 +10,16 @@ namespace Gallery.Models
         public Boolean isSuccess { get; set; } = true;
         public int code { get; set; } = 200;
         public String messenge { get; set; } = "success";
+        public int count { get; set; } = 0;
         public object data { get; set; }
         public Response()
         {
 
         }
-        public Response(object data)
+        public Response(object data,int count)
         {
             this.data = data;
+            this.count = count;
         }
     }
 }
