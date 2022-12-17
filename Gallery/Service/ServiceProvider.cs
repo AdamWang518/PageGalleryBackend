@@ -58,6 +58,7 @@ namespace Gallery.Service
                 count = (int)dr["counts"];
             }
             dr.Close();
+            database.sqlConnection.Close();
             Response response = new Response(drawList, count);
             return response;
         }

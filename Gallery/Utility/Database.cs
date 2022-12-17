@@ -10,13 +10,14 @@ namespace Gallery.Utility
     {
         String connectionString = "Persist Security Info=False;Integrated Security=true;  Initial Catalog = Gallery; Server=localhost\\MSSQLSERVER01";
         String cmd;
+        public SqlConnection sqlConnection;
         public Database(String cmd)
         {
             this.cmd = cmd;
+            sqlConnection = new SqlConnection(connectionString);
         }
         public SqlDataReader selector()
         {
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand(cmd, sqlConnection);
             SqlDataReader dr = sqlCommand.ExecuteReader();
